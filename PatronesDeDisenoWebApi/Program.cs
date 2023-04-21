@@ -1,7 +1,12 @@
+using PatronesDeDisenoWebApi.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Configuramos nuestro path de manera global para Generar nuestro Log File
+builder.Services.Configure<MyConfig>(builder.Configuration.GetSection("MyConfig"));
 
 var app = builder.Build();
 
